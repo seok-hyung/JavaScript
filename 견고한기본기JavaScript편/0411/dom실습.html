@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dom.css">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <section class="wrapper">
+        <article class="picker">
+            <label for="bg">배경색 : </label>
+            <input type="color" id="bg" class="inp-picker" data-id="bgColor">
+        </article>
+
+        <article class="picker">
+            <label for="txt">글씨색 : </label>
+            <input type="color" id="txt" class="inp-picker" data-id="txtColor">
+        </article>
+    </section>
+    <main>
+        <h1>Color Picker!!</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum possimus sint, voluptatem alias facere veniam
+            doloremque voluptas optio a omnis, ullam quae! Autem eveniet animi tempora pariatur dolorum ad laboriosam!
+        </p>
+    </main>
+
+
+    <script>
+        const bgColor = document.querySelectorAll('.inp-picker')[0];
+        document.querySelectorAll('.inp-picker')[0].addEventListener('input', function () {
+            document.documentElement.style.setProperty('--mian-bgColor', bgColor)
+        })
+        // inpPicker는 유사배열객체 혹은 노드리스트 
+        const inpPicker = document.querySelectorAll('.inp-picker');
+        // 쿼리 셀렉터로 요소를 찾는것은 비용이 비싸다(++ 문서를 탐색하는 행위들). 따라서 최대한 반복을 줄이는게 좋다. 따라서 이 경우에는 반복문 안쪽보다 밖에 전역변수로 설정하는게 좋다
+        const root = document.querySelector(':root');
+
+        inpPicker.forEach((item) => {
+            item.addEventListener('input', () => {
+                // 데이터 속성 값을 가져올때는?? dataset 객체에 접근
+                const name = '--main-' + item.dataset.id;
+                const name1 = `--main-${item.dataset.id}`;
+                root.style.setProperty(name, item.value)
+                console.log(name);
+                console.log(item.value)
+            })
+        })
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <article class="parent">
+        <ol>
+            <li><button class="btn-first" type="button">버튼1</button></li>
+            <li><button type="button">버튼2</button></li>
+            <li><button type="button">버튼3</button></li>
+        </ol>
+    </article>
+
+    <!-- <script>
+        // 부모요소에 이벤트를 달았지만, 이벤트캡쳐링과 버블링 과정을 통해 클릭한 자식 요소로도 접근이 가능하다...!!
+        const parent = document.querySelector('.parent');
+        parent.addEventListener('click', function (event) {
+            console.log(event.target);
+            console.log(event.currentTarget);
+        })
+    </script> -->
+
+    <script>
+        // 여러개의 버튼, 즉 엘레먼트 요소에 각각 addEventListener 부여하지 않고 이벤트 위임을 활용해서 여러 버튼이 있는 요소
+        const parent = document.querySelector('.parent');
+        parent.addEventListener('click', function (event) {
+            //console.log(event)
+            console.log(event.target);
+            console.log(event.currentTarget)
+
+            /*if (event.target.nodeName === "BUTTON") {
+                event.target.innerText = "버튼4";
+            }*/
+        })
+    </script>
+</body>
+
+</html>
