@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!--  -->
+    <button id="버튼">버튼</button>
+    <script>
+        let myObj = {
+            val1: 100,
+            func1: () => {
+                console.log(this)
+            }
+        }
+        let test = myObj.func1
+        let 버튼 = document.getElementById('버튼')
+
+        //버튼.addEventListener('click', myObj.func1)
+        버튼.addEventListener('click', myObj.func1)
+
+        function sayName() {
+            console.log(this.name)
+        }
+        let peter = {
+            name: 'Peter Parker',
+            say: sayName
+        }
+        let bruce = {
+            name: 'Bruce Wayne',
+            say: sayName
+        }
+
+        console.log(peter.say())
+        console.log(bruce.say())
+
+        function attackBeam() { // 레이저 공격
+            this.hp -= 20
+        }
+        function attackKnife() { // 나이프 공격
+            this.hp -= 5;
+        }
+        let jombi = {
+            name: 'busan sombi',
+            damaged1: attackBeam,
+            damaged2: attackKnife,
+            hp: 100,
+            power: 2
+        }
+        let thanos = {
+            name: 'thanos',
+            damaged1: attackBeam,
+            damaged2: attackKnife,
+            hp: 1000,
+            power: 100
+        }
+
+        jombi.damaged1()
+        console.log(jombi)
+    </script>
+</body>
+
+</html>
