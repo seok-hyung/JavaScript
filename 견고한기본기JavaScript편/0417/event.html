@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="content">
+        <div id="btn-content">
+            <button id="btn">클릭</button>
+        </div>
+    </div>
+
+    <script>
+        const contentNode = document.getElementById("content");
+        const btnContentNode = document.getElementById("btn-content");
+        const btnNode = document.getElementById("btn");
+
+        contentNode.addEventListener("click", function () {
+            console.log("id가 `content`인 div 태그의 Click EventListener");
+        });
+
+        btnContentNode.addEventListener("click", function () {
+            console.log("id가 `btn-content`인 div 태그의 Click EventListener");
+        });
+
+        btnNode.addEventListener("click", function () {
+            console.log("button Click EventListener");
+        });
+    </script>
+
+</body>
+
+</html>
