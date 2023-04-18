@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form action="">
+        <button type="submit" class="submit">제출</button>
+        <p id="p">안녕</p>
+    </form>
+    <script>
+        const submit = document.querySelector('.submit')
+        submit.addEventListener('click', function (e) {
+            console.log('clicked')
+            e.preventDefault();
+            e.stopPropagation();
+
+        })
+
+        document.body.addEventListener('click', function () {
+            console.log('event still alive!')
+
+        })
+        document.querySelector('#p').addEventListener('click', function (e) {
+            console.log('event alive2')
+            e.stopPropagation();
+        })
+
+
+    </script>
+</body>
+
+</html>
