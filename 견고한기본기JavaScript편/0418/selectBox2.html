@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./selectBox2.css">
     <title>Document</title>
 </head>
 
@@ -37,12 +38,13 @@
             btn.classList.toggle("on");
             // 선택된 option으로 포커스 이동
             selectOption.focus();
-        };
+        }
 
         // 다음 option으로 이동
         const nextOption = function (e) {
             e.preventDefault();
             const next = e.target.closest("li").nextElementSibling;
+            console.log(next)
             if (next) {
                 next.querySelector("button").focus();
             } else {
